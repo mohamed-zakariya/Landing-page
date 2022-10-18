@@ -252,7 +252,7 @@ section.your-active-class .landing__container::after {
     width: 100%;
 }
 */
-.headd{
+.page__header{
     position: fixed;
     top: 0px;
     width: 100%;
@@ -261,7 +261,7 @@ section.your-active-class .landing__container::after {
 }
 
 
-.section{
+.navbar__menu{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

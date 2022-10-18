@@ -1,25 +1,33 @@
     
 // Global Variables
-
-
-
 const addSection = document.querySelector('.button-style');
 
-var sectionVar = 5; // * intial value for adding sections * \\
+var sectionVar = 1; // * intial value for adding sections * \\
+
+function addToNav() {
+    const createEle = document.createElement('a');
+    const createLi = document.createElement('li');
+    const theUl = document.querySelector('#navbar__list');
+    createLi.appendChild(createEle);
+    theUl.appendChild(createLi);
+    createEle.textContent = "Section " + sectionVar;
+    createEle.style.cssText = "cursor:pointer";
+    createEle.setAttribute('href' , '#section' + sectionVar);
+    sectionVar++;
+}
+
+while(sectionVar < 5)
+    addToNav();
 
 
     // * evntes for creaing a new section * \\
 
 addSection.addEventListener('click', function(){
-    
-    const createEle = document.createElement('a');
-    const createLi = document.createElement('li');
     const createSection = document.createElement('section');
     const heading = document.createElement('h2');
-    const theUl = document.querySelector('#unique');
+
     const textFormal = document.createElement('div');
     heading.textContent =   "section " + sectionVar;
-
 
     textFormal.setAttribute('class' , 'landing__container');
     textFormal.innerHTML = ` <h2>Section ${sectionVar}</h2>
@@ -27,21 +35,14 @@ addSection.addEventListener('click', function(){
     
     <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>`;
 
-    createLi.appendChild(createEle);
-    theUl.appendChild(createLi);
-    createEle.textContent = "Section " + sectionVar;
-    createEle.style.cssText = "cursor:pointer";
-    createEle.setAttribute('href' , '#section' + sectionVar);
-   
-
     createSection.appendChild(textFormal);  // * creating section within the text * \\
     document.querySelector('main').appendChild(createSection);  // * putting this section after the previous sections * \\
      // * make attributes for this section similar to the previous * \\
     createSection.setAttribute('id' , 'section' + sectionVar);  
     createSection.setAttribute('data-nav' , 'section ' + sectionVar);
     
-
-    sectionVar++;       // * increment the value after add a section * \\
+    addToNav();
+       
 });
 
     // * make an active-class by scrolling to your specific section * \\
