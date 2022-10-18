@@ -3,7 +3,7 @@
 const addSection = document.querySelector('.button-style');
 
 
-var sectionVar = 1; // * intial value for adding sections * \\
+let sectionVar = 1; // * intial value for adding sections * \\
 
 function addToNav() {
     const createEle = document.createElement('a');
