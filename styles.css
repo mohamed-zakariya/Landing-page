@@ -312,3 +312,18 @@ a:hover{
 /* #imp :hover{
     background-color: red;
 } */
+.button-head{
+    display: flex;
+    justify-content: flex-end;
+}
+.button-top{
+    padding: 10px 35px;
+    border-radius: 30px;
+    margin-right: 5px;
+    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
+    border: 1px white;
+    color: white;
+}
+.button-top:hover{
+    color: rgb(83, 183, 223);
+}

@@ -78,6 +78,11 @@ window.addEventListener('scroll' , function(){
 
 
 });
+let topButton = document.querySelector('.button-top');
+
+topButton.addEventListener('click' , function(){
+        window.scrollTo(0,0);
+});
 
 
 
