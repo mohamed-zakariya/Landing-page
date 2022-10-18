@@ -2,10 +2,12 @@
 // Global Variables
 const addSection = document.querySelector('.button-style');
 
+
 var sectionVar = 1; // * intial value for adding sections * \\
 
 function addToNav() {
     const createEle = document.createElement('a');
+   
     const createLi = document.createElement('li');
     const theUl = document.querySelector('#navbar__list');
     createLi.appendChild(createEle);
@@ -13,16 +15,6 @@ function addToNav() {
     createEle.textContent = "Section " + sectionVar;
     createEle.style.cssText = "cursor:pointer";
     createEle.setAttribute('href' , '#section' + sectionVar);
-    sectionVar++;
-}
-
-while(sectionVar < 5)
-    addToNav();
-
-
-    // * evntes for creaing a new section * \\
-
-addSection.addEventListener('click', function(){
     const createSection = document.createElement('section');
     const heading = document.createElement('h2');
 
@@ -39,11 +31,30 @@ addSection.addEventListener('click', function(){
     document.querySelector('main').appendChild(createSection);  // * putting this section after the previous sections * \\
      // * make attributes for this section similar to the previous * \\
     createSection.setAttribute('id' , 'section' + sectionVar);  
-    createSection.setAttribute('data-nav' , 'section ' + sectionVar);
+    createSection.setAttribute('data-nav' , 'Section ' + sectionVar);
+    
+    createEle.addEventListener('click',function(e){
+        createSection.scrollIntoView({behavior:'smooth'});
+        e.preventDefault();
+    });
+
+    sectionVar++;
+    
+    
+}
+
+while(sectionVar < 5){
+    addToNav();
+};
+
+    // * evntes for creaing a new section * \\
+
+addSection.addEventListener('click', function(){
     
     addToNav();
        
 });
+
 
     // * make an active-class by scrolling to your specific section * \\
 window.addEventListener('scroll' , function(){
@@ -82,7 +93,7 @@ window.addEventListener('scroll' , function(){
 let topButton = document.querySelector('.button-top');
 
 topButton.addEventListener('click' , function(){
-        window.scrollTo(0,0);
+    window.scroll({ top: 0, behavior: 'smooth' });
 });
 
 
